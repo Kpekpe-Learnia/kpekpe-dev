@@ -8,7 +8,7 @@ Ce document définit les standards de développement, les conventions de code et
 ## 🧱 Structure du projet
 L'architecture est générée via un standard Django pour garantir la séparation des préoccupations :
 
-`kpekpe-learnia/` → Cœur du projet Django.
+`kpekpe_learnia/` → Cœur du projet Django.
 
 `config/` : Configuration globale (settings, wsgi, asgi, urls).
 

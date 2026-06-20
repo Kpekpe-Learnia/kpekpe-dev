@@ -5,6 +5,6 @@ omit = *migrations*,
        *test*,
        *admin*,
        ./manage.py,
-       ./kpekpe-learnia/config/*,
-       ./kpekpe-learnia/wsgi.py,
+       ./kpekpe_learnia/config/*,
+       ./kpekpe_learnia/wsgi.py,
        *__init__*

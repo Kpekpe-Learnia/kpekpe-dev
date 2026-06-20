@@ -1,9 +1,9 @@
 # kpekpe-dev
 
-[![Build Status](https://travis-ci.org/Kpekpe-Learnia/kpekpe-dev.svg?branch=master)](https://travis-ci.org/Kpekpe-Learnia/kpekpe-dev)
+[![Build Status](https://travis-ci.org/kpekpe_learnia/kpekpe-dev.svg?branch=master)](https://travis-ci.org/kpekpe_learnia/kpekpe-dev)
 [![Built with](https://img.shields.io/badge/Built_with-Cookiecutter_Django_Rest-F7B633.svg)](https://github.com/agconti/cookiecutter-django-rest)
 
-Its all about a Weissman score > 5.0. Check out the project's [documentation](http://Kpekpe-Learnia.github.io/kpekpe-dev/).
+Its all about a Weissman score > 5.0. Check out the project's [documentation](http://kpekpe_learnia.github.io/kpekpe-dev/).
 
 # Prerequisites
 

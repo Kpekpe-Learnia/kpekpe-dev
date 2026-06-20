@@ -5,7 +5,7 @@ import sys
 
 
 def main():
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "kpekpe-learnia.config")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "kpekpe_learnia.config")
     os.environ.setdefault("DJANGO_CONFIGURATION", "Local")
 
     try:

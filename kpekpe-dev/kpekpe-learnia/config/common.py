@@ -22,7 +22,7 @@ class Common(Configuration):
         'django_filters',            # for filtering rest endpoints
 
         # Your apps
-        'kpekpe-learnia.users',
+        'kpekpe_learnia.users',
 
     )
 
@@ -38,9 +38,9 @@ class Common(Configuration):
     )
 
     ALLOWED_HOSTS = ["*"]
-    ROOT_URLCONF = 'kpekpe-learnia.urls'
+    ROOT_URLCONF = 'kpekpe_learnia.urls'
     SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
-    WSGI_APPLICATION = 'kpekpe-learnia.wsgi.application'
+    WSGI_APPLICATION = 'kpekpe_learnia.wsgi.application'
 
     # Email
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

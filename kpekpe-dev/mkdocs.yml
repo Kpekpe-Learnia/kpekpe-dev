@@ -1,8 +1,8 @@
-site_name: kpekpe-learnia
+site_name: kpekpe_learnia
 site_description: Its all about a Weissman score > 5.0
-repo_url: https://github.com/Kpekpe-Learnia/kpekpe-dev
+repo_url: https://github.com/kpekpe_learnia/kpekpe-dev
 site_dir: site
-copyright: Copyright &copy; 2020, <a href="https://github.com/Kpekpe-Learnia">Kpekpe-Learnia</a>.
+copyright: Copyright &copy; 2020, <a href="https://github.com/kpekpe_learnia">kpekpe_learnia</a>.
 dev_addr: 0.0.0.0:8001
 
 nav:
