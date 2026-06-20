@@ -1,23 +1,43 @@
-# kpekpe-dev
+# Kpékpé
 
-[![Build Status](https://travis-ci.org/kpekpe_learnia/kpekpe-dev.svg?branch=master)](https://travis-ci.org/kpekpe_learnia/kpekpe-dev)
-[![Built with](https://img.shields.io/badge/Built_with-Cookiecutter_Django_Rest-F7B633.svg)](https://github.com/agconti/cookiecutter-django-rest)
+[![Built with](https://img.shields.io/badge/Django-5.1-092E20.svg)](https://djangoproject.com)
+[![Python](https://img.shields.io/badge/Python-3.13-3776AB.svg)](https://python.org)
 
-Its all about a Weissman score > 5.0. Check out the project's [documentation](http://kpekpe_learnia.github.io/kpekpe-dev/).
+Plateforme intelligente d'orientation éducative et professionnelle pour les jeunes du Togo et d'Afrique francophone.
 
-# Prerequisites
+## Prérequis
 
-- [Docker](https://docs.docker.com/docker-for-mac/install/)  
+- [Docker](https://docs.docker.com/get-docker/)
+- [uv](https://docs.astral.sh/uv/) pour le développement local hors Docker
 
-# Local Development
+## Démarrage rapide
 
-Start the dev server for local development:
 ```bash
 docker-compose up
 ```
 
-Run a command inside the docker container:
+L'API est disponible sur `http://localhost:8000/`, l'admin Django sur `http://localhost:8000/admin/`, et la documentation sur `http://localhost:8001/`.
+
+## Exécuter une commande dans le conteneur
 
 ```bash
-docker-compose run --rm web [command]
+docker-compose run --rm web ./manage.py [commande]
 ```
+
+## Développement local (sans Docker)
+
+```bash
+uv sync
+uv run python manage.py migrate
+uv run python manage.py runserver
+```
+
+## Tests
+
+```bash
+uv run pytest
+```
+
+## Contribuer
+
+Lis le fichier [CONTRIBUTING.md](./CONTRIBUTING.md) avant tout commit.

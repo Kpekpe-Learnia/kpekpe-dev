@@ -7,8 +7,7 @@ class Production(Common):
     SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
     # Site
     # https://docs.djangoproject.com/en/2.0/ref/settings/#allowed-hosts
-    ALLOWED_HOSTS = ["*"]
-    INSTALLED_APPS += ("gunicorn",)
+    ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '').split(',')    INSTALLED_APPS += ("gunicorn",)
 
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/2.0/howto/static-files/
