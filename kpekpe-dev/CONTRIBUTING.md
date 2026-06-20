@@ -36,8 +36,9 @@ L'architecture est générée via un standard Django pour garantir la séparatio
 | Interfaces / Types  | PascalCase | `UserResponse`    |
 | Constantes globales | UPPER_CASE | `API_URL`         |
 | Fichiers            | snake_case | `user_service.py` |
-| Dossiers            | kebab-case | `auth-module/`    |
-
+| Dossiers Python (packages) | snake_case | `kpekpe_learnia/`, `users/` |
+| Dossiers frontend (composants) | kebab-case | `auth-module/` |
+| Dossiers config / docs | kebab-case | `docs-api/` |
 ---
 
 ### 📏 Règles générales et normes professionnelles
@@ -66,17 +67,21 @@ Chaque ligne poussée sur ce repo doit respecter ces règles pour garantir la qu
 
 ## 🧹 Lint & Format
 
-* Ruff obligatoire pour le formatage des datas, il s'agit d'un linter et d'un formateur de code Python rapide et efficace.
-* Prettier obligatoire
-* Aucun commit ne doit casser le lint
+* **Ruff** est notre linter et formateur unique pour Python. Il remplace flake8, isort et black en un seul outil ultra-rapide.
+* Aucun commit ne doit casser le lint.
 
 Commandes :
 
 ```bash
-ruff check .
-ruff format .
+uv run ruff check .
+uv run ruff format .
 ```
 
+Vérifie le format sans modifier les fichiers :
+
+```bash
+uv run ruff format --check .
+```
 ---
 
 ## 🌿 Git Workflow
@@ -128,8 +133,16 @@ Une pull request est exigé pour fusionner de dev vers main:
 ## 🧪 Tests
 
 * Les tests sont obligatoires pour les nouvelles features
-* Framework : Jest
+* Framework : **pytest** avec pytest-django
+* Fabriques de données : **factory_boy**
+* Couverture mesurée avec **coverage**
 
+Lancer les tests :
+
+```bash
+uv run pytest
+uv run pytest --cov  # avec rapport de couverture
+```
 ---
 
 ## 🔐 Sécurité et Variables d’environnement:
@@ -165,7 +178,7 @@ L'outil uv a été choisi pour la gestion des environnements et des dépendances
 ## 🚫 Interdictions
 
 * ❌ Pas de code mort
-* ❌ Pas de console.log en production
+* ❌ Pas de print() ni de breakpoint() en production
 * ❌ Pas de duplication de code
 * ❌ Pas de commit direct sur main
 
