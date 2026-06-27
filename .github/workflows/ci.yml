@@ -62,4 +62,5 @@ jobs:
           DJANGO_SETTINGS_MODULE: kpekpe_learnia.config
           DJANGO_CONFIGURATION: Local
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/kpekpe_test
+          DJANGO_SECRET_KEY: test-secret-key-ci-only
         run: uv run pytest --tb=short -q
