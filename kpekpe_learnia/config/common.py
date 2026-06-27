@@ -1,5 +1,6 @@
 import os
 from os.path import join
+
 import dj_database_url
 from configurations import Configuration
 
@@ -121,9 +122,7 @@ class Common(Configuration):
                 "()": "django.utils.log.ServerFormatter",
                 "format": "[%(server_time)s] %(message)s",
             },
-            "verbose": {
-                "format": "%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s"
-            },
+            "verbose": {"format": "%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s"},
             "simple": {"format": "%(levelname)s %(message)s"},
         },
         "filters": {
