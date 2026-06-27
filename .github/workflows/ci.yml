@@ -1,0 +1,66 @@
+name: CI
+
+# Quand est-ce que ce pipeline tourne ?
+on:
+  push:
+    branches: [main, dev]        # À chaque push sur main ou dev
+  pull_request:
+    branches: [main, dev]        # À chaque PR vers main ou dev
+
+# Qu'est-ce qu'il fait ?
+jobs:
+  lint-and-test:
+    name: Lint + Tests
+    runs-on: ubuntu-latest       # Machine virtuelle Ubuntu fournie par GitHub
+
+    # La base de données PostgreSQL pour les tests
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: kpekpe_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U postgres"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    steps:
+      # 1. Récupère le code du repo
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Installe Python 3.13
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      # 3. Installe uv (ton gestionnaire de dépendances)
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      # 4. Installe les dépendances (dev incluses pour ruff et pytest)
+      - name: Install dependencies
+        run: uv sync
+
+      # 5. Vérifie le formatage du code
+      - name: Ruff format check
+        run: uv run ruff format --check .
+
+      # 6. Vérifie les erreurs de lint
+      - name: Ruff lint
+        run: uv run ruff check .
+
+      # 7. Lance les tests avec couverture
+      - name: Run tests
+        env:
+          DJANGO_SETTINGS_MODULE: kpekpe_learnia.config
+          DJANGO_CONFIGURATION: Local
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432/kpekpe_test
+          DJANGO_SECRET_KEY: test-secret-key-ci-only
+        run: uv run pytest --tb=short -q

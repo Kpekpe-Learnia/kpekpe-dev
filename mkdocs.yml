@@ -1,0 +1,12 @@
+site_name: Kpékpé Learnia
+site_description: Documentation technique de la plateforme Kpékpé
+repo_url: https://github.com/Kpekpe-Learnia/kpekpe-dev
+site_dir: site
+copyright: Copyright &copy; 2026, <a href="https://github.com/Kpekpe-Learnia">Kpékpé-Learnia</a>.
+dev_addr: 0.0.0.0:8001
+
+nav:
+  - Accueil: 'index.md'
+  - API:
+    - Authentification: 'api/authentication.md'
+    - Utilisateurs: 'api/users.md'
